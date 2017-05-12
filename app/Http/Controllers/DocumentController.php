@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Document;
 use App\Organization;
+use App\User;
+use App\Staff;
+use App\Student;
 use Illuminate\Http\Request;
 use Redirect;
 
@@ -108,7 +111,14 @@ class DocumentController extends Controller
     public function show($id)
     {
         $documents = Document::findOrFail($id);
-        return view('student.detail',compact('documents'));
+        $staffs = Staff::select('title','psu_passport','firstname','lastname')->get();
+        $students = Student::select('title','psu_passport','firstname','lastname')
+                            ->where('role','=','SU')->get();
+         $sc = Student::select('title','psu_passport','firstname','lastname')
+                            ->where('role','=','SC')->get();
+        return view('student.detail',compact('documents'))->with('staffs',$staffs)
+                                                           ->with('students',$students)
+                                                           ->with('sc',$sc);
     
     }
 
@@ -122,8 +132,16 @@ class DocumentController extends Controller
     {
         /*$documents = Document::findOrFail($id);
         return view('student.detail',compact('documents'));*/
+        $staffs = Staff::select('title','psu_passport','firstname','lastname')->get();
+        $students = Student::select('title','psu_passport','firstname','lastname')
+                            ->where('role','=','SU')->get();
+         $sc = Student::select('title','psu_passport','firstname','lastname')
+                            ->where('role','=','SC')->get();
         $documents = Document::findOrFail($id);
-        return view('student.approve',compact('documents'));
+        return view('student.approve',compact('documents'))->with('staffs',$staffs)
+                                                           ->with('students',$students)
+                                                           ->with('sc',$sc);
+        /*return view('student.approve')->with('staffs',$staffs);*/
     }
 
     /**
@@ -135,7 +153,7 @@ class DocumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+         
          $documents = Document::find($id);
          $documents->club_name = $request->input('OrganiName');
          $documents->activity = $request->input('activity');
@@ -201,6 +219,7 @@ class DocumentController extends Controller
         $documents->health_development4 = $request->input('health_development4');
         $documents->save();
         return Redirect::to('document');
+        
 
     }
 
@@ -212,8 +231,9 @@ class DocumentController extends Controller
      */
     public function destroy($id)
     {
-        $documents = Document::find($id)->delete();
+        $documents = Document::find($id);
+        $documents->delete();
         return Redirect::to('document');
-
+      
     }
 }

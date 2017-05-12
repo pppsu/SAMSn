@@ -207,17 +207,24 @@
 
                             @endif
                             <div>
-                                <label>Signature</label>
-                                <select class="browser-default" name="editor">
-                                    <option value="" disabled selected>Choose your Signature</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                </select></div>
+                                 <label>Signature</label>
+                            @if($documents->editor1 == $documents->editor1)
+                            <select class="browser-default">
+                                
+                                 @foreach($students as $sta)
+                                <option value="" disabled selected>{{ $sta->title }} {{ $sta->firstname }} {{ $sta->lastname }} </option>
+                                @endforeach
+                               
+                            </select>
+                            @else
+                            <option value="" disabled selected>Choose your Signature</option>
+                            @endif</div>
                             <div class="">
-                                <input type="date" name="created" id="input" class="datepicker form-control" value=""></div>
+                               </div>
                                
                         </div>
                         </form>
+
                         <div class="card-panel">
                             <h6>2.Student Union</h6>
                             @if($documents->status_pass2==null)
@@ -283,13 +290,19 @@
 
                             @endif
                             <label>Signature</label>
+                            @if($documents->editor2 == $documents->editor2)
                             <select class="browser-default">
-                                <option value="" disabled selected>Choose your Signature</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
+                                
+                                 @foreach($students as $stu)
+                                <option value="" disabled selected>{{ $stu->title }} {{ $stu->firstname }} {{ $stu->lastname }} </option>
+                                @endforeach
+                               
                             </select>
+                            @else
+                            <option value="" disabled selected>Choose your Signature</option>
+                            @endif
                             <div class="">
-                                <input type="date" name="" id="input" class="form-control" value="" required="required" title=""></div>
+                                </div>
                         </div>
                         <div class="card-panel">
                             <h6>3.Student Council</h6>
@@ -357,13 +370,19 @@
                             @endif
                             <br>
                             <label>Signature</label>
+                            @if($documents->id == $documents->editor3)
                             <select class="browser-default">
-                                <option value="" disabled selected>Choose your Signature</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
+                                
+                                 @foreach($students as $stc)
+                                <option value="" disabled selected>{{ $stc->title }} {{ $stc->firstname }} {{ $stc->lastname }} </option>
+                                @endforeach
+                               
                             </select>
+                            @else
+                            <option value="" disabled selected>Choose your Signature</option>
+                            @endif
                             <div class="">
-                                <input type="date" name="" id="input" class="form-control" value="" required="required" title=""></div>
+                                </div>
                         </div>
                     </div>
 
@@ -377,7 +396,7 @@
                                 </div>
                                 <div class="input-field col s2"><input placeholder="" id="docNo" type="text" class="validate">
                                 </div>
-                                <div class="input-field-blue col s1"><label>hr.</label>
+                                <div class="input-field-blue col s1">{{$documents->Requirement_act4}}<label>hr.</label>
                                 </div><br>
                             </div>
                             <div class="row">
@@ -386,7 +405,7 @@
                                 </div>
                                 <div class="input-field col s2"><input placeholder="" id="docNo" type="text" class="validate">
                                 </div>
-                                <div class="input-field-blue col s1"><label>hr.</label>
+                                <div class="input-field-blue col s1">{{$documents->morals4}}<label>hr.</label>
                                 </div><br>
                             </div>
                             <div class="row">
@@ -395,7 +414,7 @@
                                 </div>
                                 <div class="input-field col s2"><input placeholder="" id="docNo" type="text" class="validate">
                                 </div>
-                                <div class="input-field-blue col s1"><label>hr.</label>
+                                <div class="input-field-blue col s1">{{$documents->social_skill4}}<label>hr.</label>
                                 </div><br>
                             </div>
                             <div class="row">
@@ -404,7 +423,7 @@
                                 </div>
                                 <div class="input-field col s2"><input placeholder="" id="docNo" type="text" class="validate">
                                 </div>
-                                <div class="input-field-blue col s1"><label>hr.</label>
+                                <div class="input-field-blue col s1">{{$documents->pride_institution4}}<label>hr.</label>
                                 </div><br>
                             </div>
                             <div class="row">
@@ -413,7 +432,7 @@
                                 </div>
                                 <div class="input-field col s2"><input placeholder="" id="docNo" type="text" class="validate">
                                 </div>
-                                <div class="input-field-blue col s1"><label>hr.</label>
+                                <div class="input-field-blue col s1">{{$documents->cultural4}}<label>hr.</label>
                                 </div><br>
                             </div>
                             <div class="row">
@@ -422,7 +441,7 @@
                                 </div>
                                 <div class="input-field col s2"><input placeholder="" id="docNo" type="text" class="validate">
                                 </div>
-                                <div class="input-field-blue col s1"><label>hr.</label>
+                                <div class="input-field-blue col s1">{{$documents->health_development4}}<label>hr.</label>
                                 </div><br>
                             </div>
                              @if($documents->status_pass4==null)
@@ -488,13 +507,11 @@
 
                             @endif
                             <label>Signature</label>
-                            <select class="browser-default">
-                                <option value="" disabled selected>Choose your Signature</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                            </select>
+                                <select class="browser-default" name="editor4">
+                                    <option value="Mr.Surawut Japrang" disabled selected>Mr.Surawut Japrang</option>
+                                                                    </select>
                             <div class="">
-                                <input type="date" name="" id="input" class="form-control" value="" required="required" title=""></div>
+                                </div>
                         </div>
 
 
@@ -563,14 +580,14 @@
                             </div><br>
 
                             @endif
-                            <label>Signature</label>
-                            <select class="browser-default">
-                                <option value="" disabled selected>Choose your Signature</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                            </select>
+                             <label>Signature</label>
+                                <select class="browser-default" name="editor5">
+                                    <option value="Mr.Thawat Musikatham" disabled selected>Mr.Thawat Musikatham</option>
+                                    <!-- <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option> -->
+                                </select>
                             <div class="">
-                                <input type="date" name="" id="input" class="form-control" value="" required="required" title=""></div>
+                                </div>
                         </div>
 
                         <div class="card-panel">
@@ -639,13 +656,13 @@
 
                             @endif
                             <label>Signature</label>
-                            <select class="browser-default">
-                                <option value="" disabled selected>Choose your Signature</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                            </select>
+                                <select class="browser-default" name="editor6">
+                                    <option value="Mr.Charoen phromrit" disabled selected>Mr.Charoen phromrit</option>
+                                    <!-- <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option> -->
+                                </select>
                             <div class="">
-                                <input type="date" name="" id="input" class="form-control" value="" required="required" title=""></div>
+                                </div>
                         </div>
                         <div class="card-panel">
                             <h6>7.Vice President for Academic Affairs</h6>
@@ -712,13 +729,10 @@
 
                             @endif
                             <label>Signature</label>
-                            <select class="browser-default">
-                                <option value="" disabled selected>Choose your Signature</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                            </select>
+                                <select class="browser-default" name="editor7">
+                                    <option value="Assoc.Prof.Dr.Worawut Wisutmethangoon" disabled selected>Assoc.Prof.Dr.Worawut Wisutmethangoon</option>
                             <div class="">
-                                <input type="date" name="" id="input" class="form-control" value="" required="required" title=""></div>
+                                </div>
                         </div>
                     </div>
                    
