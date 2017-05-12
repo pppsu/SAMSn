@@ -1,0 +1,45 @@
+.picker { outline: none; } /* Optional feature */
+/* Header - Day of the week */
+.picker__weekday-display { background-color: rgb(236, 30, 30);
+    font-weight: 600;}
+/* Body - Today info */
+.picker__date-display { background-color: rgb(121,134,203); }
+/* Buttons of actions */
+.picker__nav--prev:hover { background-color: #fff3e0; }
+.picker__nav--next:hover { background-color: #fff3e0; }
+.picker__nav--prev:before {
+  border-left: 0;
+  border-right: 0.75em solid #0F74BD;
+}
+.picker__nav--next:before {
+  border-right: 0;
+  border-left: 0.75em solid #0F74BD;
+}
+.picker__today { color: #15F384; }
+.picker__clear { /* If you want to customize */ }
+.picker__close { color: #15F384; }
+.btn-flat.picker__today:active { background-color: #fff3e0; }
+.btn-flat.picker__close:active { background-color: #fff3e0; }
+.btn-flat.picker__clear:active { background-color: #fff3e0; }
+/* Select months of the year */
+.picker__select--month.browser-default {
+  display: inline;
+  background-color: #FFFFFF;
+  width: 34%;
+  border: none;
+  outline: none;
+}
+/* Every month of the year except: today */
+.picker__day { /* If you want to customize */ }
+.picker__day:hover { /* If you want to customize */ }
+.picker__day--infocus:hover { color: #f57c00; }
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected { 
+    color: #F5F4F3;
+    font-weight: 700;
+}
+.picker__day.picker__day--infocus.picker__day--selected.picker__day--highlighted { background-color: rgb(255,64,129); }
+/* Today */
+.picker__day.picker__day--infocus.picker__day--today.picker__day--selected.picker__day--highlighted { background-color: rgb(255,64,129); }
+.picker__day.picker__day--today 
+{ color: rgb(15, 50, 234);
+  font-weight: 700; }
