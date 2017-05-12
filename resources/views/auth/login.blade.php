@@ -10,15 +10,15 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="form-group{{ $errors->has('psu_pass') ? ' has-error' : '' }}">
+                            <label for="psu_pass" class="col-md-4 control-label">PSU Passport:</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="psu_pass" type="text" class="form-control" name="psu_pass" value="{{ old('psu_pass') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('psu_pass'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('psu_pass') }}</strong>
                                     </span>
                                 @endif
                             </div>

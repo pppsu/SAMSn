@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Organization;
 use App\Staff;
+use App\User;
 use Redirect;
 use Validator;
 use DB;
@@ -61,6 +62,15 @@ class OrganizationController extends Controller
             $staffs->begin_date = $request->input('begin_date');
             $staffs->end_date = $request->input('end_date');
             $staffs->save();
+
+            $user = new User;
+            $user->psu_pass = $request->input('id');
+            $user->name = $request->input('firstname');
+            $user->lastname = $request->input('lastname');
+            $user->email = $request->input('email');
+            $user->password = bcrypt('111111');
+            $user->admin = 0 ;
+            $user->save();
 
          
             $staff = Staff::select('id')->orderBy('created_at', 'desc')->first();

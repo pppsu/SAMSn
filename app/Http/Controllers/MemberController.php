@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Organization;
+use App\User;
 use Redirect;
 use Validator;
 
@@ -72,6 +73,15 @@ class MemberController extends Controller
     	$student->phone = $request->input('phone');
     	$student->email = $request->input('email');
     	$student->save();
+
+                    $user = new User;
+            $user->psu_pass = $request->input('id');
+            $user->name = $request->input('firstname');
+            $user->lastname = $request->input('lastname');
+            $user->email = $request->input('email');
+            $user->password = bcrypt('111111');
+            $user->admin = 0 ;
+            $user->save();
 
     	return Redirect::to('Member');
         }
