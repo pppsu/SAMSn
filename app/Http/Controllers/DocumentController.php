@@ -18,7 +18,8 @@ class DocumentController extends Controller
         $organization = Organization::all();
          $organization = new Organization;
         $documents = Document::all();
-        return view('student.index',['documents'=>$documents]);
+      /* return view('student.index',['documents'=>$documents]);*/
+        return view('Approve.index',['documents'=>$documents]);
     }
 
     /**
@@ -28,7 +29,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-         $organization = Organization::select('org_id','org_name')->get();
+         $organization = Organization::select('id','org_name')->get();
          $document = Document::select('id')->get();
         /*return view('student.form');*/
         return view('student.form')->with('organization',$organization);
@@ -72,7 +73,8 @@ class DocumentController extends Controller
         $documents->pride_institution = $request->input('division');
         $documents->cultural = $request->input('cultural');
         $documents->health_development = $request->input('Healthy');
-        $documents->created = $request->input('created');
+        $documents->createName = $request->input('createName');
+        $documents->createLastname = $request->input('createLastname');
 
        
         $documents->status_pass1 = $request->input('status_pass1');
@@ -151,7 +153,8 @@ class DocumentController extends Controller
          $documents->pride_institution = $request->input('division');
          $documents->cultural = $request->input('cultural');
          $documents->health_development = $request->input('Healthy');
-         $documents->created = $request->input('created');
+         $documents->createName = $request->input('createName');
+         $documents->createLastname = $request->input('createLastname');
          
          $documents->status_pass1 = $request->input('status_pass1');
          $documents->status_pass2 = $request->input('status_pass2');
@@ -161,15 +164,41 @@ class DocumentController extends Controller
          $documents->status_pass6 = $request->input('status_pass6');
          $documents->status_pass7 = $request->input('status_pass7');
         
-       /* $documents->editor = $request->input('editor1');
-        $documents->approveTime = $request->input('approveTime1');
-        $documents->comment = $request->input('comment1');
+        $documents->editor1 = $request->input('editor1');
+        $documents->approveTime1 = $request->input('approveTime1');
+        $documents->comment1 = $request->input('comment1');
+
+        $documents->editor2 = $request->input('editor2');
+        $documents->approveTime2 = $request->input('approveTime2');
+        $documents->comment2 = $request->input('comment2');
+
+        $documents->editor3 = $request->input('editor3');
+        $documents->approveTime3 = $request->input('approveTime3');
+        $documents->comment3 = $request->input('comment3');
+
+        $documents->editor4 = $request->input('editor4');
+        $documents->approveTime4 = $request->input('approveTime4');
+        $documents->comment4 = $request->input('comment4');
+
+        $documents->editor5 = $request->input('editor5');
+        $documents->approveTime5 = $request->input('approveTime5');
+        $documents->comment5 = $request->input('comment5');
+
+        $documents->editor6 = $request->input('editor6');
+        $documents->approveTime6 = $request->input('approveTime6');
+        $documents->comment6 = $request->input('comment6');
+
+        $documents->editor7 = $request->input('editor7');
+        $documents->approveTime7 = $request->input('approveTime7');
+        $documents->comment7 = $request->input('comment7');
+
+
         $documents->Requirement_act4 = $request->input('Requirement_act4');
         $documents->morals4 = $request->input('morals4');
         $documents->social_skill4 = $request->input('social_skill4');
         $documents->pride_institution4 = $request->input('pride_institution4');
         $documents->cultural4 = $request->input('cultural4');
-        $documents->health_development4 = $request->input('health_development4');*/
+        $documents->health_development4 = $request->input('health_development4');
         $documents->save();
         return Redirect::to('document');
 

@@ -90,10 +90,10 @@
                                 </div>
                                 
                                  <div class="col s2 form-group " id=""><p><b>Amount :</b></p></div>
-                                <div class="col s8 form-group ">
+                                <div class="col s4 form-group ">
                                  <input class="with-gap" name="amount" type="text" id="amount" value="{{$documents->budget_numeral}}"/>
                                 </div>
-                                <div class="col s2 form-group "><p><b>฿ .- Bath</b></p></div><br>
+                                <div class="col s6 form-group "><p><b>฿ .- Bath</b></p></div><br>
                                 
                                 <br><br>
                                 <p><h7><b>Activity hour credit as bellowing :</b></h7><br></p>
@@ -128,9 +128,12 @@
                                         <p>&nbsp;&nbsp;&nbsp;&nbsp; Thank you for your consideration,</p>
                                     </div>
                                     <div class="col s4 right form-group">
-                                         <p> {{ Auth::user()->name }}</p>
-                                        <p>({{ Auth::user()->name }})</p>
-                                        <input type="hidden" name="created" value="{{ Auth::user()->name }}">
+                                        @if($documents->id == $documents->id)
+                                        <p> <b>{{ $documents->createName }} {{ $documents->createLastname }}</b></p>
+                                        <p><b>(</b>{{ $documents->createName }} {{ $documents->createLastname }}<b>)</b></p>
+                                        <!-- <input type="hidden" name="created" value="{{ Auth::user()->name }}"> -->
+                                        @else
+                                        @endif
                                     </div>
                                 </div>
                                     
@@ -143,8 +146,10 @@
                                 
 
                         <div class="card-panel">
+
                                
                             <h6>1.Instructor in charge</h6>
+                    
                             @if($documents->status_pass1==0)
                                <div class="row input-field">
                                 <div class="col s4 radio-item1 form-group">
@@ -168,6 +173,7 @@
                                     <option value="2">Option 2</option>
                                 </select></div>
                               <div class="">
+
                                 <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""></div>
                                  <!-- <input type="submit" name="save" value="verified_user" class="btn-floating btn-large waves-effect waves-light green material-icons right"> -->
                                 @elseif($documents->status_pass1==1)
@@ -249,6 +255,7 @@
                                <!--  <input type="submit" name="save" value="verified_user" class="btn-floating btn-large waves-effect waves-light green material-icons right"> -->
                                        
                                 @endif
+
                             
 
                               

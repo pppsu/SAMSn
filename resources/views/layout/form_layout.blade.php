@@ -43,7 +43,8 @@
                     <a id="logo-container" href="{{ route('document.index') }}" class="brand-logo"><img src="https://goo.gl/wEIa98"  height="49px" width="34px"></a>
                     <ul class="right">
                         <li><a href="#">Student</a></li>
-                         <li><a href="">{{ Auth::user()->name }}</a></li>
+                        <li><a href="#">{{ Auth::user()->psu_pass }}</a></li>
+                        <li><a href="">{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
                     <li><a href="{{ url('/logout') }}"onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         Logout

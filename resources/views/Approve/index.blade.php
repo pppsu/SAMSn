@@ -1,5 +1,5 @@
-@extends('layout.docindex_layout')
-@section('title', 'Student Document')
+@extends('layout.approve_layout')
+@section('title', 'Document')
 
 @section('sidebar')
     @parent
@@ -12,9 +12,13 @@
                     <div class="row center">
                         <h5 class="header col s12 light"></h5>
                     </div>
-                    <div class="row center">
-                        <a href="document/create" class="btn-floating btn-large waves-effect waves-light #1e88e5 blue darken-1 cyan pulse"><i class="material-icons">add</i></a>
-                    </div>
+                     @if(Auth::user()->role == 'Member')
+
+                   <div class="row center">
+                       <a href="document/create" class="btn-floating btn-large waves-effect waves-light #1e88e5 blue darken-1 cyan pulse"><i class="material-icons">add</i></a>
+                   </div> 
+                   @else
+                   @endif
                    
 
                 </div>
@@ -22,13 +26,14 @@
             <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 2"></div>
         </div>
         <div class="container ">
-
-           <!--  <form>
+         
+           <!-- <form>
                <div class="input-field">
                    <input id="search" type="text" required>
                    <label for="search"><i class="material-icons">search</i></label>
                </div>
-           </form> -->
+           </form>  -->
+           
 
 
         </div>
@@ -57,7 +62,7 @@
                         <tbody>
                             
                       @foreach($documents as $document)
-                          @if(Auth::user()->name == $document->createName)
+                          @if(Auth::user()->role == 'Advisor'|| Auth::user()->role == 'VPAA' || Auth::user()->role == 'SU' || Auth::user()->role == 'SC' || Auth::user()->role == 'HSAD' || Auth::user()->role == 'HSAS' || Auth::user()->role == 'APSD'|| Auth::user()->name == $document->createName)
                             <tr>
                             @if($document->status_pass1 == 1 && $document->status_pass1 == 1 && $document->status_pass3 == 1 && $document->status_pass4 == 1 && $document->status_pass5 == 1 && $document->status_pass6 == 1 && $document->status_pass7 == 1)
                             <td ><span class=" new badge green left" data-badge-caption="Approve">{{ $document->id }}</span></td>
@@ -156,11 +161,17 @@
                                   @endif
                            
                                     
-                                
+                                 @if(Auth::user()->role == 'Advisor'|| Auth::user()->role == 'VPAA' || Auth::user()->role == 'SU' || Auth::user()->role == 'SC' || Auth::user()->role == 'HSAD' || Auth::user()->role == 'HSAS' || Auth::user()->role == 'APSD')
                                 <td>
                                 <a href="{{ route('document.edit',$document->id) }}" class="btn-floating  waves-effect waves-light pink"><i class="material-icons md-18 icon-white  ">reorder</i></a>
                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 </td>
+                                @else
+                                 <td>
+                                <a href="{{ route('document.edit',$document->id) }}" class="btn-floating  waves-effect waves-light pink" disabled><i class="material-icons md-18 icon-white  ">reorder</i></a>
+                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                </td>
+                                @endif
                                 
                                 <td><a href="http://materializecss.com/bin/materialize-v0.98.0.zip" class="btn-floating  waves-effect waves-light blue btn waves-effect waves-light" id="download-source"><i class="material-icons md-18 icon-white ">file_download</i></a></td>
 
@@ -175,10 +186,16 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="_method" value="delete"><i class="material-icons md-18 icon-white    " name="name" value="delete">delete</i></a>
                                 </td>
-                                @endif
 
-                                <td><a href="{{ route('document.show',$document->id) }}" class="btn-floating  waves-effect waves-light pink" ><i class="material-icons md-18 icon-white  ">reorder</i></a>
+                                @endif
+                                
+                                @if(Auth::user()->role == 'Advisor'|| Auth::user()->role == 'VPAA' || Auth::user()->role == 'SU' || Auth::user()->role == 'SC' || Auth::user()->role == 'HSAD' || Auth::user()->role == 'HSAS' || Auth::user()->role == 'APSD')
+                                <td><a href="{{ route('document.show',$document->id) }}" class="btn-floating  waves-effect waves-light pink" disabled><i class="material-icons md-18 icon-white  ">reorder</i></a>
                                  <input type="hidden" name="_token" value="{{ csrf_token() }}"></td>
+                                 @else
+                                 <td><a href="{{ route('document.show',$document->id) }}" class="btn-floating  waves-effect waves-light pink" ><i class="material-icons md-18 icon-white  ">reorder</i></a>
+                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></td>
+                                 @endif
 
 
                                  <!-- all approve -->
@@ -186,7 +203,7 @@
                                    
                                  </td> -->
                             </tr>
-                          @elseif(Auth::user()->name != $document->created)
+                          @elseif(Auth::user()->name != $document->createName)
                           <!-- <h4 class="header center  text amber-text ">You do not have a project.</h4> -->
                           @endif
                             @endforeach
