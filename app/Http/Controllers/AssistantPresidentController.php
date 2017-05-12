@@ -11,7 +11,7 @@ use Validator;
 class AssistantPresidentController extends Controller
 {
     public function index() {
-        $staffs = Staff::where('role','=','Assistant to the President for Student Development')->get();
+        $staffs = Staff::where('role','=','APSD')->get();
 
         return view('staff.presidentForStudent')->with('staffs',$staffs);
     }
@@ -51,16 +51,17 @@ class AssistantPresidentController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "Assistant to the President for Student Development";
+        $staffs->role = "APSD";//Assistant to the President for Student Development"
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');
             $student->save();
 
-                    $user = new User;
+            $user = new User;
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
+            $user->role = "APSD";//Assistant to the President for Student Development"
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
@@ -85,7 +86,7 @@ class AssistantPresidentController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "Assistant to the President for Student Development";
+        $staffs->role = "APSD";//Assistant to the President for Student Development"
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');

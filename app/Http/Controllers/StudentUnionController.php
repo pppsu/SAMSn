@@ -11,7 +11,7 @@ use Validator;
 class StudentUnionController extends Controller
 {
     public function index() {
-        $students = Student::where('role','=','Student Union')->paginate(20);
+        $students = Student::where('role','=','SU')->paginate(20);
         $students->setPath('studentUnion');
 
         return view('staff.studentUnion')->with('students',$students);
@@ -62,7 +62,7 @@ class StudentUnionController extends Controller
          $student->major = $request->input('major');
          $student->org_id = 'null';
          $student->position = 'null';
-         $student->role = 'Student Union';
+         $student->role = 'SU';//Student Union
          $student->begin_date = $request->input('begin_date');
          $student->end_date = $request->input('end_date');
          $student->phone = $request->input('phone');
@@ -73,6 +73,7 @@ class StudentUnionController extends Controller
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
+            $user->role = 'SU';//Student Union
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;

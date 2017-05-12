@@ -11,7 +11,7 @@ use Validator;
 class HeadAffairsController extends Controller
 {
     public function index() {
-        $staffs = Staff::where('role','=','Head of Student Affairs Division')->paginate(20);
+        $staffs = Staff::where('role','=','HSAD')->paginate(20);
         $staffs->setPath('headOfAffairs');
 
         return view('staff.headOfAffairs')->with('staffs',$staffs);
@@ -52,7 +52,7 @@ class HeadAffairsController extends Controller
             $staffs->title = $request->input('title');
             $staffs->firstname = $request->input('firstname');
             $staffs->lastname = $request->input('lastname');
-            $staffs->role = "Head of Student Affairs Division";
+            $staffs->role = "HSAD";//Head of Student Affairs Division
             $staffs->email = $request->input('email');
             $staffs->begin_date = $request->input('begin_date');
             $staffs->end_date = $request->input('end_date');
@@ -62,6 +62,7 @@ class HeadAffairsController extends Controller
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
+            $user->lastnamerole = "HSAD";//Head of Student Affairs Division
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
@@ -86,7 +87,7 @@ class HeadAffairsController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "Head of Student Affairs Division";
+        $staffs->role = "HSAD";//Head of Student Affairs Division
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');

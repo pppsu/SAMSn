@@ -78,6 +78,7 @@ class MemberController extends Controller
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
+            $user->role = 'Member';
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;

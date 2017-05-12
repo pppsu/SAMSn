@@ -11,7 +11,7 @@ use Validator;
 class VicePresidentController extends Controller
 {
     public function index() {
-        $staffs = Staff::where('role','=','Vice President for Academic Affairs')->paginate(20);
+        $staffs = Staff::where('role','=','VPAA')->paginate(20);
         $staffs->setPath('presidentForAcademic');
 
         return view('staff.presidentForAcademic')->with('staffs',$staffs);
@@ -52,7 +52,7 @@ class VicePresidentController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "Vice President for Academic Affairs";
+        $staffs->role = "VPAA";//Vice President for Academic Affairs
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');
@@ -62,6 +62,7 @@ class VicePresidentController extends Controller
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
+            $user->role = "VPAA";//Vice President for Academic Affairs
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
