@@ -64,7 +64,7 @@ Staff
 							</div>
 						</div>
 						<div class="input-field col s12 l3 m3 ">
-							<input id="adv_id" type="text" class="validate" name="adv_id" value="{{ $org->psu_passport }}">
+							<input id="adv_id" type="text" class="validate" name="psu_passport" value="{{ $org->psu_passport }}">
 							<label for="adv_id">Adviser ID</label>          
 						</div>
 					</div>
@@ -107,7 +107,8 @@ Staff
 							<label for="end">End Date</label>
 						</div>
 					</div>
-
+					
+					<input type="hidden" value="{{ $org->adv_id }}" name="adv_id">
 					{{ csrf_field() }}
 				@endforeach
 

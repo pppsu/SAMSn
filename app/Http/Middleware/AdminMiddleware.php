@@ -19,7 +19,7 @@ class AdminMiddleware
             return $next($request);
 
         }
-        return redirect('/document');
+        return redirect('/');
        /* return redirect('/studentUnion');*/
     }
 }

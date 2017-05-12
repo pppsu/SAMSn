@@ -47,7 +47,6 @@ Staff
 					<div class="row">
 						<div class="input-field col s12 l3 m3">
 							<select name="title">
-								<option value="" disabled selected>Choose your title</option>
 								<option value="Mr.">Mr.</option>
 								<option value="Mrs.">Mrs.</option>
 								<option value="Ms.">Ms.</option>

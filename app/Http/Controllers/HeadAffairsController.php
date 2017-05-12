@@ -52,17 +52,17 @@ class HeadAffairsController extends Controller
             $staffs->title = $request->input('title');
             $staffs->firstname = $request->input('firstname');
             $staffs->lastname = $request->input('lastname');
-            $staffs->role = "HSAD";//Head of Student Affairs Division
+            $staffs->role = "HSAD";
             $staffs->email = $request->input('email');
             $staffs->begin_date = $request->input('begin_date');
             $staffs->end_date = $request->input('end_date');
-            $student->save();
+            $staffs->save();
 
                         $user = new User;
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
-            $user->lastnamerole = "HSAD";//Head of Student Affairs Division
+            $user->role = "HSAD";
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
@@ -87,7 +87,7 @@ class HeadAffairsController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "HSAD";//Head of Student Affairs Division
+        $staffs->role = "HSAD";
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');

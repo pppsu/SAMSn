@@ -43,14 +43,13 @@
     <div class="row center">  
       <h2 class="set white-text">Login</h2>
     </div>
-                <div class="row">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('psu_pass') ? ' has-error' : '' }} ">
+                        <div class="form-group{{ $errors->has('psu_pass') ? ' has-error' : '' }}">
                             <label for="psu_pass" class="col-md-4 control-label">PSU Passport:</label>
 
-                            <div class="col-md-6 input-field white-text">
+                            <div class="col-md-6">
                                 <input id="psu_pass" type="text" class="form-control" name="psu_pass" value="{{ old('psu_pass') }}" required autofocus>
 
                                 @if ($errors->has('psu_pass'))
@@ -76,24 +75,14 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                   <i class="material-icons left">perm_identity</i>Login</a>
+                                <button type="submit" class="btn btn-primary ">
+                                  <i class="material-icons left">perm_identity</i>Login
+                                </button>
+                                <button type="submit" class="btn btn-primary ">
+                                  <i class="material-icons left ">save</i><a class="white-text" href="{{ url('/register') }}">Register</a>
                                 </button>
 
-                                <button type="submit" class="btn btn-primary white-text">
-                                  <i class="material-icons left" >library_add</i><a class="white-text" href="{{ url('/register') }}">Register</a>
-                                </button>
                               
                             </div>
                         </div>
@@ -103,9 +92,12 @@
         </div>
     </div>
 </div>
+
+
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
 </html>
+

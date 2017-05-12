@@ -50,7 +50,7 @@ Staff
 				<td>{{ $s->org_name}}</td>
 				<td>
 					<a href="editMember{{ $s->id }}"><i class="Tiny material-icons ">mode_edit</i></a>
-					<a href="Member/delete/{{ $s->sid }}"><i class="Tiny material-icons " style="color: red">delete</i></a>
+					<a href="Member/delete/{{ $s->id }}"><i class="Tiny material-icons " style="color: red">delete</i></a>
 				</td>
 			</tr>
 			@endforeach

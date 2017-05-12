@@ -61,7 +61,7 @@ class StudentCouncilController extends Controller
             $student->major = $request->input('major');
             $student->org_id = 'null';
             $student->position = 'null';
-            $student->role = 'SC';//Student Council
+            $student->role = 'SC';
             $student->begin_date = $request->input('begin_date');
             $student->end_date = $request->input('end_date');
             $student->phone = $request->input('phone');
@@ -72,7 +72,7 @@ class StudentCouncilController extends Controller
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
-            $user->role = 'SC';//Student Council
+            $user->role = 'SC';
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
@@ -101,7 +101,7 @@ class StudentCouncilController extends Controller
         $student->major = $request->input('major');
         $student->org_id = 'null';
         $student->position = 'null';
-        $student->role = 'SC';//Student Council
+        $student->role = 'SC';
         $student->begin_date = $request->input('begin_date');
         $student->end_date = $request->input('end_date');
         $student->phone = $request->input('phone');

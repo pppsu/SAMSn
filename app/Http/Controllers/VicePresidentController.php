@@ -52,17 +52,17 @@ class VicePresidentController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "VPAA";//Vice President for Academic Affairs
+        $staffs->role = "VPAAs";
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');
-            $student->save();
+            $staffs->save();
 
                         $user = new User;
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
-            $user->role = "VPAA";//Vice President for Academic Affairs
+            $user->role = "VPAAs";
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
@@ -87,7 +87,7 @@ class VicePresidentController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "Vice President for Academic Affairs";
+        $staffs->role = "VPAAs";
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');

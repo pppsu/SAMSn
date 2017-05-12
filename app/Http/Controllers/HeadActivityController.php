@@ -52,17 +52,17 @@ class HeadActivityController extends Controller
             $staffs->title = $request->input('title');
             $staffs->firstname = $request->input('firstname');
             $staffs->lastname = $request->input('lastname');
-            $staffs->role = "HSAS";//Head of Student Activity Section
+            $staffs->role = "HSAS";
             $staffs->email = $request->input('email');
             $staffs->begin_date = $request->input('begin_date');
             $staffs->end_date = $request->input('end_date');
-            $student->save();
+            $staffs->save();
 
                         $user = new User;
             $user->psu_pass = $request->input('id');
             $user->name = $request->input('firstname');
             $user->lastname = $request->input('lastname');
-            $user->role ="HSAS";//Head of Student Activity Section
+            $user->role = "HSAS";
             $user->email = $request->input('email');
             $user->password = bcrypt('111111');
             $user->admin = 0 ;
@@ -87,7 +87,7 @@ class HeadActivityController extends Controller
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
-        $staffs->role = "HSAS";//Head of Student Activity Section
+        $staffs->role = "HSAS";
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');

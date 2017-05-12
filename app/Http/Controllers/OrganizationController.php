@@ -9,6 +9,7 @@ use App\User;
 use Redirect;
 use Validator;
 use DB;
+
 class OrganizationController extends Controller
 {
     public function index() {
@@ -113,8 +114,8 @@ class OrganizationController extends Controller
         $organization->org_attribute = $request->input('org_attribute');
         $organization->save();
 
-        /*$staffs = new Staff;
-        $staffs->psu_passport = $request->input('id');
+        $staffs = Staff::where('id','=',$request->input('adv_id'))->get()->first();
+        $staffs->psu_passport = $request->input('psu_passport');
         $staffs->title = $request->input('title');
         $staffs->firstname = $request->input('firstname');
         $staffs->lastname = $request->input('lastname');
@@ -122,13 +123,19 @@ class OrganizationController extends Controller
         $staffs->email = $request->input('email');
         $staffs->begin_date = $request->input('begin_date');
         $staffs->end_date = $request->input('end_date');
-        $staffs->save();*/
+
+        $staffs->save();
 
         return Redirect::to('organizeation');
     }
 
     public function destroy($id) {
         $organization = Organization::find($id);
+        $staff = Staff::find($organization->adv_id);
+        $users = User::where('psu_pass','=',$staff->psu_passport)->get()->first();
+
+       // $users->delete();
+        $staff->delete();
         $organization->delete();
 
         return Redirect::to('organizeation');

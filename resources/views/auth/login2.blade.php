@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="row center">
-      <a href="createdocument" class="waves-effect waves-light btn"><i class="material-icons left">perm_identity</i>Login</a>
+      <a href="createdocument" class="waves-effect waves-light btn"><i class="material-icons left white-text">perm_identity</i>Login</a>
     </div>
   </div>
 
