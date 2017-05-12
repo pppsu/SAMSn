@@ -35,4 +35,6 @@ class User extends Authenticatable
     protected $casts = [
         'admin' => 'boolean',
     ];
+
+    
 }

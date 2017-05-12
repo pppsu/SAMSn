@@ -33,9 +33,9 @@
                                    </div> -->
                                 <div class="input-field col s8">
 								<select class="browser-default" name="OrganiName">
-								<option value="" disabled selected center>Choose your organization</option>
+								<option value="" disabled selected>Choose your organization</option>
 								@foreach($organization as $org)
-								<option value="{{ $org->org_id }}">{{ $org->org_name }}</option>
+								<option value="{{ $org->org_name}}">{{ $org->org_name }}</option>
 								@endforeach
 								</select>
 							<!-- <label>Choos Organization</label> -->
@@ -138,9 +138,10 @@
 	                                    <p>&nbsp;&nbsp;&nbsp;&nbsp; <b>Thank you for your consideration,</b></p>
 	                                </div>
 	                                <div class="col s4 right form-group">
-	                                    <p><b>{{ Auth::user()->name }}</b></p>
-	                                    <p><b>(</b>{{ Auth::user()->name }}<b>)</b></p>
-	                                    <input type="hidden" name="created" value="{{ Auth::user()->name }}">
+	                                    <p><b>{{ Auth::user()->name }} {{ Auth::user()->lastname }}</b></p>
+	                                    <p><b>(</b>{{ Auth::user()->name }} {{ Auth::user()->lastname }}<b>)</b></p>
+	                                    <input type="hidden" name="createName" value="{{ Auth::user()->name }}">
+	                                    <input type="hidden" name="createLastname" value="{{ Auth::user()->lastname }}">
 	                                </div>
 	                            </div>
 									<div class="form-group right">

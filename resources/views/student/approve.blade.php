@@ -90,10 +90,10 @@
                                 </div>
                                 
                                  <div class="col s2 form-group " id=""><p><b>Amount :</b></p></div>
-                                <div class="col s8 form-group ">
+                                <div class="col s4 form-group ">
                                  <input class="with-gap" name="amount" type="text" id="amount" value="{{$documents->budget_numeral}}"/>
                                 </div>
-                                <div class="col s2 form-group "><p><b>฿ .- Bath</b></p></div><br>
+                                <div class="col s6 form-group "><p><b>฿ .- Bath</b></p></div><br>
                                 
                                 <br><br>
                                 <p><h7><b>Activity hour credit as bellowing :</b></h7><br></p>
@@ -128,9 +128,13 @@
                                         <p>&nbsp;&nbsp;&nbsp;&nbsp; Thank you for your consideration,</p>
                                     </div>
                                     <div class="col s4 right form-group">
-                                         <p> {{ Auth::user()->name }}</p>
-                                        <p>({{ Auth::user()->name }})</p>
-                                        <input type="hidden" name="created" value="{{ Auth::user()->name }}">
+                                        @if($documents->id == $documents->id)
+                                        <p> <b>{{ $documents->createName }} {{ $documents->createLastname }}</b></p>
+                                        <p><b>(</b>{{ $documents->createName }} {{ $documents->createLastname }}<b>)</b></p>
+                                        <input type="hidden" name="createName" value="{{ $documents->createName }}"> 
+                                        <input type="hidden" name="createLastname" value="{{ $documents->createLastname }}"> 
+                                        @else
+                                        @endif
                                     </div>
                                 </div>
                                     
@@ -143,8 +147,10 @@
                                 
 
                         <div class="card-panel">
+
                                
                             <h6>1.Instructor in charge</h6>
+                    
                             @if($documents->status_pass1==0)
                                <div class="row input-field">
                                 <div class="col s4 radio-item1 form-group">
@@ -162,13 +168,23 @@
                                 <br>
                             <div>
                                 <label>Signature</label>
-                                <select class="browser-default" name="editor1">
+                                <!-- <select class="browser-default" name="editor1">
                                     <option value="" disabled selected>Choose your Signature</option>
                                     <option value="1">Option 1</option>
                                     <option value="2">Option 2</option>
-                                </select></div>
+                                </select> -->
+                                <select class="browser-default" name="editor1">
+                                <option value="" disabled selected>Choose your Signature</option>
+                                @foreach($staffs as $sta)
+                                <option value="{{ $sta->firstname }}">{{ $sta->title }} {{ $sta->firstname }} {{ $sta->lastname }} </option>
+                                @endforeach
+                                </select>
+
+                                </div>
+                                
                               <div class="">
-                                <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""></div>
+
+                               <!--  <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""> --></div>
                                  <!-- <input type="submit" name="save" value="verified_user" class="btn-floating btn-large waves-effect waves-light green material-icons right"> -->
                                 @elseif($documents->status_pass1==1)
                                 <div class="row input-field">
@@ -187,13 +203,16 @@
                                 <br>
                             <div>
                                 <label>Signature</label>
-                                <select class="browser-default" name="editor1">
-                                    <option value="" disabled selected>Choose your Signature</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                </select></div>
+                                 <select class="browser-default" name="editor1">
+                                <option value="" disabled selected>Choose your Signature</option>
+                                @foreach($staffs as $sta)
+                                <option value="{{ $sta->firstname }}">{{ $sta->title }} {{ $sta->firstname }} {{ $sta->lastname }} </option>
+                                @endforeach
+                                </select>
+                                </div>
                               <div class="">
-                                <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""></div>
+                               <!--  <input type="date" class="datepicker form-control" name="approveTime1">  -->
+                                <!-- <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""> --></div>
                                <!--  <input type="submit" name="save" value="verified_user" class="btn-floating btn-large waves-effect waves-light green material-icons right"> -->
                                        
                                 @elseif($documents->status_pass1==2)
@@ -214,12 +233,14 @@
                             <div>
                                 <label>Signature</label>
                                 <select class="browser-default" name="editor1">
-                                    <option value="" disabled selected>Choose your Signature</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                </select></div>
+                                <option value="" disabled selected>Choose your Signature</option>
+                                @foreach($staffs as $sta)
+                                <option value="{{ $sta->firstname }}">{{ $sta->title }} {{ $sta->firstname }} {{ $sta->lastname }} </option>
+                                @endforeach
+                                </select>
+                                </div>
                               <div class="">
-                                <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""></div>
+                                <!-- <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""> --></div>
                                <!--  <input type="submit" name="save" value="verified_user" class="btn-floating btn-large waves-effect waves-light green material-icons right"> -->
                                 
                                 @elseif($documents->status_pass1==3)
@@ -240,15 +261,18 @@
                             <div>
                                 <label>Signature</label>
                                 <select class="browser-default" name="editor1">
-                                    <option value="" disabled selected>Choose your Signature</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
+                                   <select class="browser-default" name="editor1">
+                                <option value="" disabled selected>Choose your Signature</option>
+                                @foreach($staffs as $sta)
+                                <option value="{{ $sta->firstname }}">{{ $sta->title }} {{ $sta->firstname }} {{ $sta->lastname }} </option>
+                                @endforeach
                                 </select></div>
                               <div class="">
-                                <input type="date" name="approveTime1" id="input" class="datepicker form-control" value=""></div>
+                               <!--  <input type="date" name="approveTime1" id="input1" class="datepicker form-control" value=""> --></div>
                                <!--  <input type="submit" name="save" value="verified_user" class="btn-floating btn-large waves-effect waves-light green material-icons right"> -->
                                        
                                 @endif
+
                             
 
                               
@@ -321,13 +345,16 @@
                             <br>
                             <div>
                                 <label>Signature</label>
-                                <select class="browser-default" name="editor2">
-                                    <option value="" disabled selected>Choose your Signature</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
+                                <select class="browser-default" name="editor1">
+                                <option value="" disabled selected>Choose your Signature</option>
+                                @foreach($students as $stu)
+                                <option value="{{ $stu->firstname }}">{{ $stu->title }} {{ $stu->firstname }} {{ $stu->lastname }} </option>
+                                @endforeach
                                 </select></div>
                               <div class="">
-                                <input type="date" name="approveTime2" id="input" class="datepicker form-control" value=""></div>
+                                <!-- <input type="date" name="approveTime2" id="input2" class="datepicker form-control" value=""> -->
+                                   <!--  <input type="date" class="datepicker form-control" name="approveTime2">  -->
+                                </div>
                         </div>
                         <div class="card-panel">
                             <h6>3.Student Council</h6>
@@ -391,13 +418,14 @@
                             <br>
                             <div>
                                 <label>Signature</label>
-                                <select class="browser-default" name="editor3">
-                                    <option value="" disabled selected>Choose your Signature</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
+                                <select class="browser-default" name="editor1">
+                                <option value="" disabled selected>Choose your Signature</option>
+                                @foreach($sc as $stc)
+                                <option value="{{ $stc->firstname }}">{{ $stc->title }} {{ $stc->firstname }} {{ $stc->lastname }} </option>
+                                @endforeach
                                 </select></div>
                               <div class="">
-                                <input type="date" name="approveTime3" id="input" class="datepicker form-control" value=""></div>
+                               <!--  <input type="date" name="approveTime3" id="input3" class="datepicker form-control" value=""> --></div>
                         </div>
                     </div>
 
@@ -523,7 +551,7 @@
                                     <option value="Mr.Surawut Japrang" disabled selected>Mr.Surawut Japrang</option>
                                                                     </select></div>
                               <div class="">
-                                <input type="date" name="approveTime4" id="input" class="datepicker form-control" value="date"></div>
+                               <!--  <input type="date" name="approveTime4" id="input4" class="datepicker form-control" value="date"> --></div>
                         </div>
 
 
@@ -597,7 +625,7 @@
                                     <option value="2">Option 2</option> -->
                                 </select></div>
                               <div class="">
-                                <input type="date" name="approveTime5" id="input" class="datepicker form-control" value=""></div>
+                               <!--  <input type="date" name="approveTime5" id="input5" class="datepicker form-control" value=""> --></div>
                         </div>
 
                         <div class="card-panel">
@@ -669,7 +697,7 @@
                                     <option value="2">Option 2</option> -->
                                 </select></div>
                               <div class="">
-                                <input type="date" name="approveTime6" id="input" class="datepicker form-control" value=""></div>
+                               <!--  <input type="date" name="approveTime6" id="input6" class="datepicker form-control" value=""> --></div>
                         </div>
                         <div class="card-panel">
                             <h6>7.Vice President for Academic Affairs</h6>
@@ -739,7 +767,7 @@
                                     <option value="2">Option 2</option> -->
                                 </select></div>
                               <div class="">
-                                <input type="date" name="approveTime7" id="input" class="datepicker form-control" value=""></div>
+                               <!--  <input type="date" name="approveTime7" id="input7" class="datepicker form-control" value=""> --></div>
                         </div>
                     </div>
                          

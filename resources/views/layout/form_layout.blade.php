@@ -42,8 +42,25 @@
                     <!-- <a id="logo-container" href="#" class="brand-logo"><img src="images/logo.png" height="49px" width="34px" alt=""></a> -->
                     <a id="logo-container" href="{{ route('document.index') }}" class="brand-logo"><img src="https://goo.gl/wEIa98"  height="49px" width="34px"></a>
                     <ul class="right">
-                        <li><a href="#">Student</a></li>
-                         <li><a href="">{{ Auth::user()->name }}</a></li>
+                       @if(Auth::user()->role == 'Advisor')  
+                       <li><a href="#">Advisor</a></li>
+                       @elseif(Auth::user()->role == 'SU')
+                       <li><a href="#">Student Union</a></li>
+                       @elseif(Auth::user()->role == 'SC')
+                       <li><a href="#">Student Council</a></li>
+                       @elseif(Auth::user()->role == 'HSAS')
+                       <li><a href="#">Head of Student Activity Section</a></li>
+                       @elseif(Auth::user()->role == 'HSAD')
+                       <li><a href="#">Head of Student  Affairs Division</a></li>
+                       @elseif(Auth::user()->role == 'APSD')
+                       <li><a href="#">Assistant to the President for Student Development</a></li>
+                       @elseif(Auth::user()->role == 'VPAA')
+                       <li><a href="#">Vice President for Academic Affairs</a></li>
+                       @elseif(Auth::user()->role == 'Member')
+                       <li><a href="#">Student</a></li>
+                       @endif
+                        <li><a href="#">{{ Auth::user()->psu_pass }}</a></li>
+                        <li><a href="">{{ Auth::user()->name }} {{ Auth::user()->lastname }}</a></li>
                     <li><a href="{{ url('/logout') }}"onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         Logout
