@@ -15,7 +15,7 @@
                     <div class="row center">
                         <a href="document/create" class="btn-floating btn-large waves-effect waves-light #1e88e5 blue darken-1 cyan pulse"><i class="material-icons">add</i></a>
                     </div>
-
+                   
 
                 </div>
             </div>
@@ -23,12 +23,12 @@
         </div>
         <div class="container ">
 
-           <!--  <form>
-               <div class="input-field">
-                   <input id="search" type="text" required>
-                   <label for="search"><i class="material-icons">search</i></label>
-               </div>
-           </form> -->
+            <form>
+                <div class="input-field">
+                    <input id="search" type="text" required>
+                    <label for="search"><i class="material-icons">search</i></label>
+                </div>
+            </form>
 
 
         </div>

@@ -21,7 +21,7 @@
                 <a id="logo-container" href="#" class="brand-logo"><img src="images/logo.png" height="49px" width="34px" alt=""></a>
                 <ul class="right">
                     <li><a href="#">Student</a></li>
-                     <li><a href="">{{ Auth::user()->name }} </a></li> 
+                     <li><a href="">{{ Auth::user()->name }}</a></li>
                     <li><a href="{{ url('/logout') }}"onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         Logout

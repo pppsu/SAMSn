@@ -163,6 +163,7 @@ Route::post('/organizeation/update/{id}', 'OrganizationController@update');
 Route::get('/organizeation/delete/{id}', 'OrganizationController@destroy');
 //-------------------------------------------------------------------------
 
+
 });
 
 Route::resource('document','DocumentController');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Document;
+use App\Organization;
 use Illuminate\Http\Request;
 use Redirect;
 
@@ -14,6 +15,8 @@ class DocumentController extends Controller
      */
     public function index()
     {
+        $organization = Organization::all();
+         $organization = new Organization;
         $documents = Document::all();
         return view('student.index',['documents'=>$documents]);
     }
@@ -25,7 +28,12 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('student.form');
+         $organization = Organization::select('org_id','org_name')->get();
+         $document = Document::select('id')->get();
+        /*return view('student.form');*/
+        return view('student.form')->with('organization',$organization);
+
+
     }
 
     /**
@@ -37,6 +45,7 @@ class DocumentController extends Controller
     public function store(Request $request)
     {
         $documents = new Document;
+        $organization = new Organization;
         
         /*$documents->club_id = $request->input('docNo');*/
         $documents->club_name = $request->input('OrganiName');

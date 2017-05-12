@@ -19,6 +19,7 @@
                                     <div class="input-field col s2 ">					
                                         <label for="OrganiName" class="input-field">Organization name</label>
                                     </div>
+							
                                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                      <input type="hidden" name="status_pass1" value="0">
                                      <input type="hidden" name="status_pass2" value="0">
@@ -28,17 +29,26 @@
                                      <input type="hidden" name="status_pass6" value="0">
                                      <input type="hidden" name="status_pass7" value="0">
                                     <div class="input-field col s10 form-group">
-                                    <input placeholder="" name="OrganiName" id="OrganiName" type="text" class="validate form-control" >
-                                    </div>
+                                   <!--  <input placeholder="" name="OrganiName" id="OrganiName" type="text" class="validate form-control" >
+                                   </div> -->
+                                <div class="input-field col s8">
+								<select class="browser-default" name="OrganiName">
+								<option value="" disabled selected center>Choose your organization</option>
+								@foreach($organization as $org)
+								<option value="{{ $org->org_id }}">{{ $org->org_name }}</option>
+								@endforeach
+								</select>
+							<!-- <label>Choos Organization</label> -->
+						</div>
                                 </div>
-                                <div class="row form-group">
+                                <!-- <div class="row form-group">
                                     	<div class="input-field col s12 m4 l2 form-group">
                                         	<label for="docNo" class="input-field">Document no.</label>
                                     	</div>
                                     		<div class="input-field col s12 m4 l8 form-group">
                                         		<input disabled name="id" placeholder="" id="docNo" type="text" class="validate form-control" value="">
                                     		</div>
-                                </div>
+                                </div> -->
                                 <div class="row form-group">
                                     <div class="input-field col s7">
                                         <label for="activity" class="input-field">Subject Request for activity/ project/event approval (activity name).</label></div>
@@ -88,10 +98,10 @@
 	                                                            <input type="range" min="0" max="50000" value="0" name="amount" id="amount" step="1" oninput="outputUpdate(value)"></div>
 	                                                        <div class="col s4"><output for="amount" id="volume">0</output> ฿ .- Bath</div> -->
 	                            <div class="col s2 form-group " id=""><p><b>Amount :</b></p></div>
-	                            <div class="col s8 form-group ">
+	                            <div class="col s4 form-group ">
 	                             <input class="with-gap" name="amount" type="text" id="amount" />
 	                            </div>
-	                            <div class="col s2 form-group "><p><b>฿ .- Bath</b></p></div><br>
+	                            <div class="col s6 form-group "><p><b>฿ .- Bath</b></p></div><br>
 	                            
 
 								
