@@ -20,7 +20,7 @@
         .bk {background-color: #212121;}
         .side-nav a:hover {background-color: rgba(0,0,0,0.1) !important;}
         .divider{ background-color: grey}
-
+        
     </style>
 
 
@@ -35,15 +35,14 @@
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="">Staff:</a></li>
-                    <li><a href="">{{ Auth::user()->name }}</a></li>
+                    <li><a href="">Jeson Along</a></li>
                     <li><a href="{{ url('/logout') }}"onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         Logout
-                    </a>
-
-                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        </a>
+                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
-                    </form></li>
+                    </form>
 
                 </ul>
             </div>
@@ -56,14 +55,28 @@
                     <img class="circle" src="img/PSU2.png">
                 </div>
             </li>
-            <li>
-                <div class="divider"></div>
-            </li>
+            
+            <li><a href="organizeation">Organization Information</a></li>
+
+            <li><a href="Member">Member Information</a></li>
+
             <ul class="collapsible ">
                 <li>
-                    <div class="collapsible-header">
-                        Organization Information
+                    <div class="collapsible-header">An Authority's Information</div>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="studentUnion">Student union</a></li>
+                            <li><a href="studentCouncil">Student Councill</a></li>
+                            <li><a href="headOfActivity">Head Of Student Activity Section</a></li>
+                            <li><a href="headOfAffairs">Head of Student Affairs Division</a></li>
+                            <li><a class="truncate" href="presidentForStudent">Assistant to The President for Student Development</a></li>
+                            <li><a class="truncate" href="presidentForAcademic">Vice President for Acdemic Affairs for Phuket Campus</a></li>
+                        </ul>
                     </div>
+                </li>
+
+                <!-- <li>
+                    <div class="collapsible-header">Organization Information</div>
                     <div class="collapsible-body">
                         <ul>
                             <li><a href="organizeation">Information</a></li>
@@ -86,7 +99,7 @@
                     <div class="collapsible-header bk">
                         An Authority's Information
                     </div>
-
+                
                     <div class="collapsible-body">
                         <ul>
                             <li> 
@@ -104,7 +117,7 @@
                                     </li> 
                                 </ul>
                             </li>
-
+                
                             <li> 
                                 <ul class="collapsible">
                                     <li>
@@ -120,7 +133,7 @@
                                     </li> 
                                 </ul>
                             </li>
-
+                
                             <li> 
                                 <ul class="collapsible">
                                     <li>
@@ -136,7 +149,7 @@
                                     </li> 
                                 </ul>
                             </li>
-
+                
                             <li> 
                                 <ul class="collapsible">
                                     <li>
@@ -152,7 +165,7 @@
                                     </li> 
                                 </ul>
                             </li>
-
+                
                             <li> 
                                 <ul class="collapsible">
                                     <li>
@@ -168,7 +181,7 @@
                                     </li> 
                                 </ul>
                             </li>
-
+                
                             <li> 
                                 <ul class="collapsible">
                                     <li>
@@ -187,8 +200,8 @@
                         </ul>
                     </div>
                 </li>
-
-            </ul>
+                
+                            </ul> -->
             <li><div class="divider"></div></li>
         </ul>
 
